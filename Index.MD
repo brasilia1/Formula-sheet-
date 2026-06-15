@@ -1,0 +1,21 @@
+
+EC226_Formula_Sheet.pdf
+Handout_01_Two_variable_regression.pdf
+Handout_02___Multiple_Regression (1).pdf
+Handout_03___Dummy_Variables.pdf
+Handout_04___Breakdown.pdf
+Handout_05___Simultaneous_Equations.pdf
+Handout_06___Chow_Tests.pdf
+Handout_07___Omitted_Variables.pdf
+Handout_08___Normality.pdf
+Handout_09___Heteroscedasticity.pdf
+Handout_10___Measurement_Errors.pdf
+Handout_11___Multicollinearity.pdf
+Handout_12___Limited_Dependent_Variable_Models.pdf
+Handout_1___Time_Series_Models.pdf
+Handout_2___Serial_Correlation.pdf
+Handout_3___Non_stationarity.pdf
+Handout_4___Cointegration.pdf
+Handout_5___Panel_Data.pdf
+Handout_6___Causality.pdf
+Statistical Tables.pdf
