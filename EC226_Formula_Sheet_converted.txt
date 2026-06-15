@@ -1,0 +1,315 @@
+EC226 Econometrics 1
+EC226 ECONOMETRICS 1
+FORMULA SHEET
+FOR EXAMS
+
+[Page 2: blank]
+
+============================================================
+1  2-VARIABLE REGRESSION MODEL
+============================================================
+
+Y_i = α + βX_i + ε_i where i = 1, ..., n
+
+1.1  Normal Equations
+
+Σ_{i=1}^n e_i = 0;  Σ_{i=1}^n e_i X_i = 0
+
+1.2  Least Squares estimates
+
+b = [Σ_{i=1}^n (X_i - X̄)(Y_i - Ȳ)] / [Σ_{i=1}^n (X_i - X̄)^2],
+
+a = Ȳ - bX̄
+
+1.3  Estimation of the error variance
+
+s_e^2 = RSS/(n - 2)
+
+s_e^2 = [Σ_{i=1}^n (Y_i - Ȳ)^2 - b^2 Σ_{i=1}^n (X_i - X̄)^2] / (n - 2)
+
+1.4  Test on the regression slope coefficient
+
+H_0: β = β_0,  H_1: β ≠ β_0
+
+t = (b - β_0)/se(b), where se(b)^2 = s_e^2 / [Σ_{i=1}^n (X_i - X̄)^2]
+
+1.5  Standard error of prediction of Y_{n+1} given X_{n+1}
+
+se(Y_{n+1}) = s_e sqrt[1 + 1/n + (X_{n+1} - X̄)^2 / {Σ_{i=1}^n (X_i - X̄)^2}]
+
+
+============================================================
+2  MULTIPLE REGRESSION MODEL
+============================================================
+
+Y_i = β_0 + β_1X_{1i} + β_2X_{2i} + ... + β_kX_{ki} + ε_i where i = 1, ..., n
+
+2.1  Normal Equations
+
+Σ_{i=1}^n e_i = 0;
+Σ_{i=1}^n e_i X_{1i} = 0,
+Σ_{i=1}^n e_i X_{2i} = 0;
+...
+Σ_{i=1}^n e_i X_{ki} = 0
+
+2.2  Estimation of the error variance
+
+s_e^2 = RSS/(n - k - 1) = [Σ_{i=1}^n e_i^2] / (n - k - 1)
+
+2.3  R-squared
+
+R^2 = 1 - RSS/TSS;
+
+R-bar-squared: R̄^2 = 1 - [RSS/(n - k - 1)] / [TSS/(n - 1)]
+
+2.4  Test on regression coefficients
+
+(i) Single coefficient is equal to some hypothesised value:
+
+H_0: β_i = β_{i0},  H_1: β_i ≠ β_{i0},
+
+t = (b_i - β_{i0})/se(b_i) ~ t_{n-k-1}
+
+(ii) All slope coefficients are equal to zero:
+
+H_0: β_1 = β_2 ... = β_k = 0,
+H_1: Any β_j ≠ 0, j = 1, ..., k
+
+F = [R^2/(1 - R^2)] * [(n - k - 1)/k] ~ F_{k,n-k-1}
+
+(iii) A subset of coefficients are equal to zero:
+
+H_0: β_1 = β_2 ... = β_j = 0,
+H_1: Any β_i ≠ 0, i = 1, ..., j
+
+F = [(RSS^R - RSS^U)/RSS^U] * [(n - k - 1)/j] ~ F_{j,n-k-1}
+
+(iv) The coefficients from some sub-set of observations are equal to those of some other sub-set of observations:
+
+H_0: β_0^1 = β_0^2, β_1^1 = β_1^2 ... = β_k^1 = β_k^2,
+H_1: Any β_j^1 ≠ β_j^2, j = 0, ..., k
+
+F = {[RSS^R - (RSS^1 + RSS^2)]/(k + 1)} / {[(RSS^1 + RSS^2)/(n - 2(k + 1))]} ~ F_{k+1,n-2(k+1)}
+
+2.5  Omitted Relevant Variables
+
+Y_i = δ_0 + δ_1X_i + u_i
+
+Y_i = β_0 + β_1X_i + β_2Z_i + ε_i
+
+E(δ̂_1) = β_1 + β_2 [cov(X_i, Z_i) / Var(X_i)]
+
+2.6  Measurement Error
+
+Y_i = β_0 + β_1X_i^T + ε_i
+
+X_i^R = X^T + u_i
+
+E(β̂_1) = β_1 - β_1 [cov(X_i^R, u_i) / Var(X_i^R)]
+
+2.7  Selection Criteria
+
+(i) AIC: ln(RSS)/n + 2k/n
+
+(ii) HQ: ln(RSS)/n + 2k ln ln(n)/n
+
+(iii) BIC: ln(RSS)/n + k ln(n)/n
+
+
+============================================================
+3  LIMITED DEPENDENT VARIABLE MODEL
+============================================================
+
+3.1  Linear Probability Model
+
+P[Y_i = 1] = X_i'β
+
+3.2  Logit Model
+
+P[Y_i = 1] = F(X_i'β) = exp(X_i'β) / [1 + exp(X_i'β)] = Λ(X_i'β)
+
+pdf for logit model:
+
+f(X_i'β) = λ(X_i'β) = Λ(X_i'β)[1 - Λ(X_i'β)]
+
+3.3  Probit Model
+
+P[Y_i = 1] = F(X_i'β) = ∫_{-∞}^{X_i'β} (2π)^(-1/2) exp(-z/2) dz = Φ(X_i'β)
+
+pdf for probit model:
+
+f(X_i'β) = ϕ(X_i'β) = (2π)^(-1/2) exp[-(X_i'β)^2/2]
+
+3.4  Interpreting Coefficients (for continuous variable)
+
+∂E(Y_i)/∂X_{ji} = [∂F(X_i'β)/∂(X_i'β)] · β_j
+
+where [∂F(X_i'β)/∂(X_i'β)] = f(X_i'β) and f(X_i'β) is the pdf.
+
+
+============================================================
+4  TIME SERIES MODELS
+============================================================
+
+Y_t = α + β_1X_{1t} + β_2X_{2t} + ... + β_kX_{kt} + ε_t,  t = 1, ..., T
+
+Normal Equations:
+Σ_{t=1}^T e_t = 0;
+Σ_{t=1}^T e_t X_{1t} = 0,
+Σ_{t=1}^T e_t X_{2t} = 0;
+...
+Σ_{t=1}^T e_t X_{kt} = 0
+
+Durbin-Watson Test statistic:
+
+d = [Σ_{t=2}^T (e_t - e_{t-1})^2] / [Σ_{t=1}^T e_t^2]
+
+Durbin's h-statistic:
+
+h = ϕ sqrt[T / (1 - T s_c^2)], where s_c^2 = Estimated variance of coefficient on lagged dependent variable and ϕ = Estimated 1st autocorrelation term.
+
+4.1  Serial Correlation
+
+4.1.1  AutoRegressive Model (AR(p))
+
+Y_t = μ + Σ_{j=1}^p ϕ_jY_{t-j} + ε_t
+
+E(Y_t) = μ/(1 - ϕ_1 - ϕ_2 - ... - ϕ_p)
+
+Yule Walker Equations:
+
+γ_j = ϕ_1γ_{j-1} + ϕ_2γ_{j-2} ... + ϕ_pγ_{j-p}
+
+where γ_k = cov(Y_t, Y_{t-k}) and γ_0 = var(Y_t)
+
+ρ_j = ϕ_1ρ_{j-1} + ϕ_2ρ_{j-2} ... + ϕ_pρ_{j-p}
+
+where ρ_k = corr(Y_t, Y_{t-k}) and ρ_0 = 1
+
+4.1.2  Moving Average Model (MA(q))
+
+Y_t = μ + Σ_{j=0}^q θ_jε_{t-j}, where θ_0 = 1
+
+E(Y_t) = μ
+
+γ_0 = σ^2(1 + θ_1^2 + θ_2^2 + ... + θ_q^2)
+
+
+============================================================
+5  NON-STATIONARITY
+============================================================
+
+5.1  Unit Root Tests
+
+5.1.1  ADF
+
+Model C: ΔY_t = μ + αt + γY_{t-1} + Σ_{j=1}^q ΔY_{t-j} + ϵ_t
+
+where Model A: μ = 0, α = 0; Model B: α = 0
+
+H_0: γ = 0,  H_1: γ < 0;  Test statistic: (γ̂ - 0)/se(γ̂) ~ MacKinnon critical values
+
+5.1.2  DF-GLS
+
+For trend stationarity, estimate the model:
+
+Ỹ_t = δ_0X_t + δ_1Z_t + ε_t
+
+where Ỹ_1 = Y_1, X_1 = 1, Z_1 = 1,
+Ỹ_t = Y_t - α*Y_{t-1}, X_t = 1 - α*, Z_t = t - α*(t - 1) for t = 2, ..., T and α* = 1 - (13.5/T).
+
+Obtain the residuals:
+
+Y_t* = Y_t - (δ̂_0 + δ̂_1t)
+
+and undertake the ADF test on Y*:
+
+ΔY_t* = α + γY_{t-1}* + Σ_{j=1}^{p*} δ_jΔY_{t-j}* + ε_t
+
+H_0: γ = 0,  H_1: γ < 0
+
+5.1.3  KPSS
+
+Estimate the following model (for trend stationary series):
+
+Y_t = μ + αt + η_t and save the residuals, η̂_t
+
+KPSS = (1/T^2)(1/λ^2) Σ_{t=1}^T S_t^2
+
+where S_t = Σ_{j=1}^t η̂_j and λ^2 is long-run error variance.
+
+5.2  Engle-Granger Two Step Procedure
+
+Assuming Y_t ~ I(1) and X_t ~ I(1) then the long-run equation is:
+
+Y_t = β_0 + β_1X_t + ε_t
+
+is cointegrated if ε̂_t ~ I(0).
+
+In which case there are potential two error correction models (ECMs):
+
+ΔY_t = α_1 + Σ_{j=1}^{p_1} γ_{1j}ΔX_{t-j} + Σ_{j=1}^{q_1} β_{1j}ΔY_{t-j} + δ_1ε̂_{t-1} + ν_{1t}
+
+ΔX_t = α_1 + Σ_{j=1}^{p_2} γ_{2j}ΔY_{t-j} + Σ_{j=1}^{q_2} β_{2j}ΔX_{t-j} + δ_2ε̂_{t-1} + ν_{2t}
+
+
+============================================================
+6  PANEL DATA
+============================================================
+
+The basic regression model is of the form:
+
+Y_{it} = a_i + d_t + βX_{it} + ε_{it}
+
+where i = 1, ..., n, t = 1, ..., T
+
+6.1  POLS: a_i = 0, d_t = 0
+
+Y_{it} = α + βX_{it} + ε_{it} where i = 1, ..., n, t = 1, ..., T
+
+b = [Σ_{i=1}^N Σ_{t=1}^T (X_{it} - X_{..})(Y_{it} - Y_{..})] / [Σ_{i=1}^N Σ_{t=1}^T (X_{it} - X_{..})^2]
+
+where:
+
+X_{..} = [Σ_{i=1}^N Σ_{t=1}^T X_{it}] / (NT);
+Y_{..} = [Σ_{i=1}^N Σ_{t=1}^T Y_{it}] / (NT)
+
+6.2  1-way Fixed Effects: a_i ≠ 0, d_t = 0
+
+Y_{it} = a_i + βX_{it} + ε_{it} where i = 1, ..., n, t = 1, ..., T
+
+b = [Σ_{i=1}^N Σ_{t=1}^T (X_{it} - X_{i.})(Y_{it} - Y_{i.})] / [Σ_{i=1}^N Σ_{t=1}^T (X_{it} - X_{i.})^2]
+
+where:
+
+X_{i.} = [Σ_{t=1}^T X_{it}] / T;
+Y_{i.} = [Σ_{t=1}^T Y_{it}] / T
+
+6.3  2-way Fixed Effects: a_i ≠ 0, d_t ≠ 0
+
+Y_{it} = a_i + d_t + βX_{it} + ε_{it} where i = 1, ..., n, t = 1, ..., T
+
+b = [Σ_{i=1}^N Σ_{t=1}^T X̃_{it}Ỹ_{it}] / [Σ_{i=1}^N Σ_{t=1}^T X̃_{it}^2]
+
+where:
+
+X̃_{it} = X_{it} - X_{i.} - X_{.t} + X_{..}
+
+Ỹ_{it} = Y_{it} - Y_{i.} - Y_{.t} + Y_{..}
+
+and:
+
+X_{i.} = [Σ_{t=1}^T X_{it}] / T;
+Y_{i.} = [Σ_{t=1}^T Y_{it}] / T;
+X_{.t} = [Σ_{i=1}^N X_{it}] / N;
+Y_{.t} = [Σ_{i=1}^N Y_{it}] / N;
+X_{..} = [Σ_{i=1}^N Σ_{t=1}^T X_{it}] / (NT);
+Y_{..} = [Σ_{i=1}^N Σ_{t=1}^T Y_{it}] / (NT)
+
+6.4  Dynamic Panel Data Model
+
+Y_{it} = a_i + β_1X_{it} + β_2Y_{it-1} + ε_{it} where i = 1, ..., n, t = 2, ..., T
+
+Estimated as:
+
+ΔY_{it} = β_1ΔX_{it} + β_2ΔY_{it-1} + Δε_{it}
